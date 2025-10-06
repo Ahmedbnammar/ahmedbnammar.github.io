@@ -49,6 +49,43 @@
             padding: 0 20px;
         }
 
+        /* Language Switcher */
+        .language-switcher {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            display: flex;
+            gap: 10px;
+            background: rgba(22, 27, 34, 0.9);
+            padding: 10px 15px;
+            border-radius: 30px;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .lang-btn {
+            background: transparent;
+            border: none;
+            color: var(--gray);
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 500;
+            cursor: pointer;
+            padding: 5px 10px;
+            border-radius: 15px;
+            transition: all 0.3s ease;
+        }
+
+        .lang-btn.active {
+            background: var(--primary);
+            color: var(--dark);
+        }
+
+        .lang-btn:hover:not(.active) {
+            color: var(--primary);
+        }
+
         /* Header & Navigation */
         header {
             background: linear-gradient(135deg, var(--darker) 0%, var(--dark) 100%);
@@ -807,10 +844,22 @@
                 height: 50px;
                 font-size: 1.3rem;
             }
+
+            .language-switcher {
+                top: 10px;
+                right: 10px;
+                padding: 8px 12px;
+            }
         }
     </style>
 </head>
 <body>
+    <!-- Language Switcher -->
+    <div class="language-switcher">
+        <button class="lang-btn active" data-lang="en">EN</button>
+        <button class="lang-btn" data-lang="fr">FR</button>
+    </div>
+
     <!-- Header Section -->
     <header>
         <div class="floating-shapes">
@@ -829,7 +878,7 @@
                     </div>
                 </div>
                 <h1>Ahmed Ammar</h1>
-                <p class="tagline">Software Engineer & Product Owner</p>
+                <p class="tagline" data-i18n="header.tagline">Software Engineer & Product Owner</p>
                 <div class="typing-text" id="typing-text"></div>
                 
                 <div class="badges">
@@ -867,12 +916,12 @@
     <!-- About Section -->
     <section id="about">
         <div class="container fade-in">
-            <h2 class="section-title">About Me</h2>
+            <h2 class="section-title" data-i18n="about.title">About Me</h2>
             <div class="about-content">
                 <div class="about-text">
-                    <p>I am <span class="highlight">Ahmed Ammar</span>, a passionate Software Engineer and Product Owner dedicated to creating technological solutions that combine performance with business value.</p>
-                    <p>Certified in <span class="highlight">SAP</span> and as a <span class="highlight">Professional Scrum Product Owner (PSPO I)</span>, I blend strong technical expertise with a deep understanding of business needs to design scalable, secure, and user-centered applications.</p>
-                    <p>My goal is to transform complex ideas into elegant software solutions that create real impact, adopting Agile methodologies and engineering best practices.</p>
+                    <p data-i18n="about.p1">I am <span class="highlight">Ahmed Ammar</span>, a passionate Software Engineer and Product Owner dedicated to creating technological solutions that combine performance with business value.</p>
+                    <p data-i18n="about.p2">Certified in <span class="highlight">SAP</span> and as a <span class="highlight">Professional Scrum Product Owner (PSPO I)</span>, I blend strong technical expertise with a deep understanding of business needs to design scalable, secure, and user-centered applications.</p>
+                    <p data-i18n="about.p3">My goal is to transform complex ideas into elegant software solutions that create real impact, adopting Agile methodologies and engineering best practices.</p>
                 </div>
             </div>
         </div>
@@ -881,53 +930,53 @@
     <!-- Skills Section -->
     <section id="skills">
         <div class="container fade-in">
-            <h2 class="section-title">My Skills</h2>
+            <h2 class="section-title" data-i18n="skills.title">My Skills</h2>
             <div class="skills-grid">
                 <div class="skill-category">
-                    <h3>Software Development</h3>
+                    <h3 data-i18n="skills.category1.title">Software Development</h3>
                     <ul class="skill-list">
-                        <li>Java & Spring Boot</li>
-                        <li>Angular & TypeScript</li>
-                        <li>Python & Flask</li>
-                        <li>C++ & C#</li>
-                        <li>PHP & Symfony</li>
-                        <li>Microservices Architecture</li>
+                        <li data-i18n="skills.category1.item1">Java & Spring Boot</li>
+                        <li data-i18n="skills.category1.item2">Angular & TypeScript</li>
+                        <li data-i18n="skills.category1.item3">Python & Flask</li>
+                        <li data-i18n="skills.category1.item4">C++ & C#</li>
+                        <li data-i18n="skills.category1.item5">PHP & Symfony</li>
+                        <li data-i18n="skills.category1.item6">Microservices Architecture</li>
                     </ul>
                 </div>
                 
                 <div class="skill-category">
-                    <h3>Cloud & DevOps</h3>
+                    <h3 data-i18n="skills.category2.title">Cloud & DevOps</h3>
                     <ul class="skill-list">
-                        <li>Docker & Kubernetes</li>
-                        <li>CI/CD with Jenkins</li>
-                        <li>Prometheus & Grafana</li>
-                        <li>Git & GitHub Actions</li>
-                        <li>Infrastructure as Code</li>
-                        <li>Monitoring & Observability</li>
+                        <li data-i18n="skills.category2.item1">Docker & Kubernetes</li>
+                        <li data-i18n="skills.category2.item2">CI/CD with Jenkins</li>
+                        <li data-i18n="skills.category2.item3">Prometheus & Grafana</li>
+                        <li data-i18n="skills.category2.item4">Git & GitHub Actions</li>
+                        <li data-i18n="skills.category2.item5">Infrastructure as Code</li>
+                        <li data-i18n="skills.category2.item6">Monitoring & Observability</li>
                     </ul>
                 </div>
                 
                 <div class="skill-category">
-                    <h3>Databases & Security</h3>
+                    <h3 data-i18n="skills.category3.title">Databases & Security</h3>
                     <ul class="skill-list">
-                        <li>PostgreSQL & MySQL</li>
-                        <li>MongoDB</li>
-                        <li>Apache Kafka</li>
-                        <li>OAuth 2.0 & Spring Security</li>
-                        <li>Keycloak</li>
-                        <li>CQRS Architecture</li>
+                        <li data-i18n="skills.category3.item1">PostgreSQL & MySQL</li>
+                        <li data-i18n="skills.category3.item2">MongoDB</li>
+                        <li data-i18n="skills.category3.item3">Apache Kafka</li>
+                        <li data-i18n="skills.category3.item4">OAuth 2.0 & Spring Security</li>
+                        <li data-i18n="skills.category3.item5">Keycloak</li>
+                        <li data-i18n="skills.category3.item6">CQRS Architecture</li>
                     </ul>
                 </div>
                 
                 <div class="skill-category">
-                    <h3>Product & Soft Skills</h3>
+                    <h3 data-i18n="skills.category4.title">Product & Soft Skills</h3>
                     <ul class="skill-list">
-                        <li>Product Ownership (PSPO I)</li>
-                        <li>Agile & Scrum Methodologies</li>
-                        <li>Project Management</li>
-                        <li>Communication & Leadership</li>
-                        <li>Problem Solving</li>
-                        <li>Critical Thinking</li>
+                        <li data-i18n="skills.category4.item1">Product Ownership (PSPO I)</li>
+                        <li data-i18n="skills.category4.item2">Agile & Scrum Methodologies</li>
+                        <li data-i18n="skills.category4.item3">Project Management</li>
+                        <li data-i18n="skills.category4.item4">Communication & Leadership</li>
+                        <li data-i18n="skills.category4.item5">Problem Solving</li>
+                        <li data-i18n="skills.category4.item6">Critical Thinking</li>
                     </ul>
                 </div>
             </div>
@@ -937,19 +986,19 @@
     <!-- Languages Section -->
     <section id="languages">
         <div class="container fade-in">
-            <h2 class="section-title">Languages</h2>
+            <h2 class="section-title" data-i18n="languages.title">Languages</h2>
             <div class="languages">
                 <div class="language-item">
-                    <h3>French</h3>
-                    <p>B2 – Professional Proficiency</p>
+                    <h3 data-i18n="languages.french.name">French</h3>
+                    <p data-i18n="languages.french.level">B2 – Professional Proficiency</p>
                 </div>
                 <div class="language-item">
-                    <h3>English</h3>
-                    <p>C1 – Advanced</p>
+                    <h3 data-i18n="languages.english.name">English</h3>
+                    <p data-i18n="languages.english.level">C1 – Advanced</p>
                 </div>
                 <div class="language-item">
-                    <h3>Arabic</h3>
-                    <p>Native Language</p>
+                    <h3 data-i18n="languages.arabic.name">Arabic</h3>
+                    <p data-i18n="languages.arabic.level">Native Language</p>
                 </div>
             </div>
         </div>
@@ -958,57 +1007,57 @@
     <!-- Experience Section -->
     <section id="experience">
         <div class="container fade-in">
-            <h2 class="section-title">Professional Journey</h2>
+            <h2 class="section-title" data-i18n="experience.title">Professional Journey</h2>
             <div class="timeline">
                 <div class="timeline-item">
                     <div class="timeline-content">
-                        <h3>Full-Stack Software Engineer</h3>
-                        <p class="timeline-date">June 2025 - Present</p>
-                        <p>Tunisie Électronique, Tunis</p>
+                        <h3 data-i18n="experience.job1.title">Full-Stack Software Engineer</h3>
+                        <p class="timeline-date" data-i18n="experience.job1.date">June 2025 - Present</p>
+                        <p data-i18n="experience.job1.company">Tunisie Électronique, Tunis</p>
                         <ul class="skill-list">
-                            <li>Spring Boot backend development with MongoDB</li>
-                            <li>Angular frontend with secure payment integration</li>
-                            <li>Contribution to environmental scoring SaaS engine</li>
-                            <li>Real-time React dashboard integration</li>
+                            <li data-i18n="experience.job1.duty1">Spring Boot backend development with MongoDB</li>
+                            <li data-i18n="experience.job1.duty2">Angular frontend with secure payment integration</li>
+                            <li data-i18n="experience.job1.duty3">Contribution to environmental scoring SaaS engine</li>
+                            <li data-i18n="experience.job1.duty4">Real-time React dashboard integration</li>
                         </ul>
                     </div>
                 </div>
                 
                 <div class="timeline-item">
                     <div class="timeline-content">
-                        <h3>Freelance Developer</h3>
-                        <p class="timeline-date">Nov 2021 - Present</p>
-                        <p>Independent, Tunisia</p>
+                        <h3 data-i18n="experience.job2.title">Freelance Developer</h3>
+                        <p class="timeline-date" data-i18n="experience.job2.date">Nov 2021 - Present</p>
+                        <p data-i18n="experience.job2.company">Independent, Tunisia</p>
                         <ul class="skill-list">
-                            <li>Web application design and development</li>
-                            <li>Implementation of scalable microservices architectures</li>
-                            <li>Software architecture consulting</li>
+                            <li data-i18n="experience.job2.duty1">Web application design and development</li>
+                            <li data-i18n="experience.job2.duty2">Implementation of scalable microservices architectures</li>
+                            <li data-i18n="experience.job2.duty3">Software architecture consulting</li>
                         </ul>
                     </div>
                 </div>
                 
                 <div class="timeline-item">
                     <div class="timeline-content">
-                        <h3>Final Year Internship</h3>
-                        <p class="timeline-date">Oct 2023 - Jul 2024</p>
-                        <p>Arab Soft, Tunis</p>
+                        <h3 data-i18n="experience.job3.title">Final Year Internship</h3>
+                        <p class="timeline-date" data-i18n="experience.job3.date">Oct 2023 - Jul 2024</p>
+                        <p data-i18n="experience.job3.company">Arab Soft, Tunis</p>
                         <ul class="skill-list">
-                            <li>Development of HR system with AI (NLP)</li>
-                            <li>Reduced processing time from 2 weeks to 1 hour</li>
-                            <li>Security implementation with Keycloak</li>
+                            <li data-i18n="experience.job3.duty1">Development of HR system with AI (NLP)</li>
+                            <li data-i18n="experience.job3.duty2">Reduced processing time from 2 weeks to 1 hour</li>
+                            <li data-i18n="experience.job3.duty3">Security implementation with Keycloak</li>
                         </ul>
                     </div>
                 </div>
                 
                 <div class="timeline-item">
                     <div class="timeline-content">
-                        <h3>Engineering Internship</h3>
-                        <p class="timeline-date">Jul 2023 - Aug 2023</p>
-                        <p>Standard Sharing Software (3S), Tunis</p>
+                        <h3 data-i18n="experience.job4.title">Engineering Internship</h3>
+                        <p class="timeline-date" data-i18n="experience.job4.date">Jul 2023 - Aug 2023</p>
+                        <p data-i18n="experience.job4.company">Standard Sharing Software (3S), Tunis</p>
                         <ul class="skill-list">
-                            <li>Kubernetes platform deployment</li>
-                            <li>CI/CD automation with Jenkins</li>
-                            <li>Monitoring with Grafana and Prometheus</li>
+                            <li data-i18n="experience.job4.duty1">Kubernetes platform deployment</li>
+                            <li data-i18n="experience.job4.duty2">CI/CD automation with Jenkins</li>
+                            <li data-i18n="experience.job4.duty3">Monitoring with Grafana and Prometheus</li>
                         </ul>
                     </div>
                 </div>
@@ -1019,33 +1068,33 @@
     <!-- Certifications Section -->
     <section id="certifications">
         <div class="container fade-in">
-            <h2 class="section-title">My Certifications</h2>
+            <h2 class="section-title" data-i18n="certifications.title">My Certifications</h2>
             <div class="certifications">
                 <div class="cert-card">
                     <div class="cert-icon">
                         <i class="fas fa-scroll"></i>
                     </div>
-                    <h3>Professional Scrum Product Owner I</h3>
-                    <p>Scrum.org</p>
-                    <p>July 2025</p>
+                    <h3 data-i18n="certifications.cert1.name">Professional Scrum Product Owner I</h3>
+                    <p data-i18n="certifications.cert1.issuer">Scrum.org</p>
+                    <p data-i18n="certifications.cert1.date">July 2025</p>
                 </div>
                 
                 <div class="cert-card">
                     <div class="cert-icon">
                         <i class="fas fa-cloud"></i>
                     </div>
-                    <h3>SAP S/4HANA Cloud Public Edition</h3>
-                    <p>SAP Certified Application Associate</p>
-                    <p>July 2025</p>
+                    <h3 data-i18n="certifications.cert2.name">SAP S/4HANA Cloud Public Edition</h3>
+                    <p data-i18n="certifications.cert2.issuer">SAP Certified Application Associate</p>
+                    <p data-i18n="certifications.cert2.date">July 2025</p>
                 </div>
                 
                 <div class="cert-card">
                     <div class="cert-icon">
                         <i class="fas fa-cogs"></i>
                     </div>
-                    <h3>SAP TS410</h3>
-                    <p>Integrated Business Processes</p>
-                    <p>June 2025</p>
+                    <h3 data-i18n="certifications.cert3.name">SAP TS410</h3>
+                    <p data-i18n="certifications.cert3.issuer">Integrated Business Processes</p>
+                    <p data-i18n="certifications.cert3.date">June 2025</p>
                 </div>
             </div>
         </div>
@@ -1054,14 +1103,14 @@
     <!-- Contact Section -->
     <section id="contact">
         <div class="container fade-in">
-            <h2 class="section-title">Contact Me</h2>
+            <h2 class="section-title" data-i18n="contact.title">Contact Me</h2>
             <div class="contact-container">
                 <div class="contact-info">
-                    <h3>Contact Information</h3>
+                    <h3 data-i18n="contact.info.title">Contact Information</h3>
                     <ul class="contact-details">
                         <li>
                             <i class="fas fa-map-marker-alt"></i>
-                            <span>Nabeul, BouArgoub, Tunisia, 8000</span>
+                            <span data-i18n="contact.info.address">Nabeul, BouArgoub, Tunisia, 8000</span>
                         </li>
                         <li>
                             <i class="fas fa-envelope"></i>
@@ -1090,25 +1139,25 @@
                 </div>
                 
                 <div class="contact-form">
-                    <h3>Send me a message</h3>
+                    <h3 data-i18n="contact.form.title">Send me a message</h3>
                     <form id="contactForm" action="https://formspree.io/f/mpzzvjrb" method="POST">
                         <div class="form-group">
-                            <label for="name">Name</label>
+                            <label for="name" data-i18n="contact.form.name">Name</label>
                             <input type="text" id="name" name="name" class="form-control" required>
                         </div>
                         <div class="form-group">
-                            <label for="email">Email</label>
+                            <label for="email" data-i18n="contact.form.email">Email</label>
                             <input type="email" id="email" name="email" class="form-control" required>
                         </div>
                         <div class="form-group">
-                            <label for="subject">Subject</label>
+                            <label for="subject" data-i18n="contact.form.subject">Subject</label>
                             <input type="text" id="subject" name="subject" class="form-control" required>
                         </div>
                         <div class="form-group">
-                            <label for="message">Message</label>
+                            <label for="message" data-i18n="contact.form.message">Message</label>
                             <textarea id="message" name="message" class="form-control" required></textarea>
                         </div>
-                        <button type="submit" class="btn">Send Message</button>
+                        <button type="submit" class="btn" data-i18n="contact.form.button">Send Message</button>
                     </form>
                 </div>
             </div>
@@ -1119,54 +1168,316 @@
     <footer>
         <div class="container">
             <div class="footer-content">
-                <p class="quote">"First, solve the problem. Then, write the code." - John Johnson</p>
-                <p>⭐ From concept to production, I turn ideas into robust, scalable software solutions.</p>
-                <p class="copyright">&copy; 2025 Ahmed Ammar. All rights reserved.</p>
+                <p class="quote" data-i18n="footer.quote">"First, solve the problem. Then, write the code." - John Johnson</p>
+                <p data-i18n="footer.tagline">⭐ From concept to production, I turn ideas into robust, scalable software solutions.</p>
+                <p class="copyright">&copy; 2025 Ahmed Ammar. <span data-i18n="footer.rights">All rights reserved.</span></p>
             </div>
         </div>
     </footer>
 
     <script>
-        // Typing Animation
-        const typingText = document.getElementById('typing-text');
-        const texts = [
-            "Software Engineer",
-            "Product Owner", 
-            "Cloud Architect",
-            "Innovation Enthusiast"
-        ];
-        let textIndex = 0;
-        let charIndex = 0;
-        let isDeleting = false;
-        let typingSpeed = 100;
+        // Language detection and translation system
+        const translations = {
+            en: {
+                "header.tagline": "Software Engineer & Product Owner",
+                "about.title": "About Me",
+                "about.p1": "I am <span class='highlight'>Ahmed Ammar</span>, a passionate Software Engineer and Product Owner dedicated to creating technological solutions that combine performance with business value.",
+                "about.p2": "Certified in <span class='highlight'>SAP</span> and as a <span class='highlight'>Professional Scrum Product Owner (PSPO I)</span>, I blend strong technical expertise with a deep understanding of business needs to design scalable, secure, and user-centered applications.",
+                "about.p3": "My goal is to transform complex ideas into elegant software solutions that create real impact, adopting Agile methodologies and engineering best practices.",
+                "skills.title": "My Skills",
+                "skills.category1.title": "Software Development",
+                "skills.category1.item1": "Java & Spring Boot",
+                "skills.category1.item2": "Angular & TypeScript",
+                "skills.category1.item3": "Python & Flask",
+                "skills.category1.item4": "C++ & C#",
+                "skills.category1.item5": "PHP & Symfony",
+                "skills.category1.item6": "Microservices Architecture",
+                "skills.category2.title": "Cloud & DevOps",
+                "skills.category2.item1": "Docker & Kubernetes",
+                "skills.category2.item2": "CI/CD with Jenkins",
+                "skills.category2.item3": "Prometheus & Grafana",
+                "skills.category2.item4": "Git & GitHub Actions",
+                "skills.category2.item5": "Infrastructure as Code",
+                "skills.category2.item6": "Monitoring & Observability",
+                "skills.category3.title": "Databases & Security",
+                "skills.category3.item1": "PostgreSQL & MySQL",
+                "skills.category3.item2": "MongoDB",
+                "skills.category3.item3": "Apache Kafka",
+                "skills.category3.item4": "OAuth 2.0 & Spring Security",
+                "skills.category3.item5": "Keycloak",
+                "skills.category3.item6": "CQRS Architecture",
+                "skills.category4.title": "Product & Soft Skills",
+                "skills.category4.item1": "Product Ownership (PSPO I)",
+                "skills.category4.item2": "Agile & Scrum Methodologies",
+                "skills.category4.item3": "Project Management",
+                "skills.category4.item4": "Communication & Leadership",
+                "skills.category4.item5": "Problem Solving",
+                "skills.category4.item6": "Critical Thinking",
+                "languages.title": "Languages",
+                "languages.french.name": "French",
+                "languages.french.level": "B2 – Professional Proficiency",
+                "languages.english.name": "English",
+                "languages.english.level": "C1 – Advanced",
+                "languages.arabic.name": "Arabic",
+                "languages.arabic.level": "Native Language",
+                "experience.title": "Professional Journey",
+                "experience.job1.title": "Full-Stack Software Engineer",
+                "experience.job1.date": "June 2025 - Present",
+                "experience.job1.company": "Tunisie Électronique, Tunis",
+                "experience.job1.duty1": "Spring Boot backend development with MongoDB",
+                "experience.job1.duty2": "Angular frontend with secure payment integration",
+                "experience.job1.duty3": "Contribution to environmental scoring SaaS engine",
+                "experience.job1.duty4": "Real-time React dashboard integration",
+                "experience.job2.title": "Freelance Developer",
+                "experience.job2.date": "Nov 2021 - Present",
+                "experience.job2.company": "Independent, Tunisia",
+                "experience.job2.duty1": "Web application design and development",
+                "experience.job2.duty2": "Implementation of scalable microservices architectures",
+                "experience.job2.duty3": "Software architecture consulting",
+                "experience.job3.title": "Final Year Internship",
+                "experience.job3.date": "Oct 2023 - Jul 2024",
+                "experience.job3.company": "Arab Soft, Tunis",
+                "experience.job3.duty1": "Development of HR system with AI (NLP)",
+                "experience.job3.duty2": "Reduced processing time from 2 weeks to 1 hour",
+                "experience.job3.duty3": "Security implementation with Keycloak",
+                "experience.job4.title": "Engineering Internship",
+                "experience.job4.date": "Jul 2023 - Aug 2023",
+                "experience.job4.company": "Standard Sharing Software (3S), Tunis",
+                "experience.job4.duty1": "Kubernetes platform deployment",
+                "experience.job4.duty2": "CI/CD automation with Jenkins",
+                "experience.job4.duty3": "Monitoring with Grafana and Prometheus",
+                "certifications.title": "My Certifications",
+                "certifications.cert1.name": "Professional Scrum Product Owner I",
+                "certifications.cert1.issuer": "Scrum.org",
+                "certifications.cert1.date": "July 2025",
+                "certifications.cert2.name": "SAP S/4HANA Cloud Public Edition",
+                "certifications.cert2.issuer": "SAP Certified Application Associate",
+                "certifications.cert2.date": "July 2025",
+                "certifications.cert3.name": "SAP TS410",
+                "certifications.cert3.issuer": "Integrated Business Processes",
+                "certifications.cert3.date": "June 2025",
+                "contact.title": "Contact Me",
+                "contact.info.title": "Contact Information",
+                "contact.info.address": "Nabeul, BouArgoub, Tunisia, 8000",
+                "contact.form.title": "Send me a message",
+                "contact.form.name": "Name",
+                "contact.form.email": "Email",
+                "contact.form.subject": "Subject",
+                "contact.form.message": "Message",
+                "contact.form.button": "Send Message",
+                "footer.quote": "\"First, solve the problem. Then, write the code.\" - John Johnson",
+                "footer.tagline": "⭐ From concept to production, I turn ideas into robust, scalable software solutions.",
+                "footer.rights": "All rights reserved."
+            },
+            fr: {
+                "header.tagline": "Ingénieur Logiciel & Product Owner",
+                "about.title": "À Propos de Moi",
+                "about.p1": "Je suis <span class='highlight'>Ahmed Ammar</span>, un Ingénieur Logiciel et Product Owner passionné par la création de solutions technologiques qui allient performance et valeur métier.",
+                "about.p2": "Certifié <span class='highlight'>SAP</span> et <span class='highlight'>Professional Scrum Product Owner (PSPO I)</span>, je combine une solide expertise technique avec une compréhension approfondie des besoins business pour concevoir des applications évolutives, sécurisées et centrées sur l'utilisateur.",
+                "about.p3": "Mon objectif est de transformer des idées complexes en solutions logicielles élégantes qui créent un impact réel, en adoptant les méthodologies Agile et les meilleures pratiques d'ingénierie.",
+                "skills.title": "Mes Compétences",
+                "skills.category1.title": "Développement Logiciel",
+                "skills.category1.item1": "Java & Spring Boot",
+                "skills.category1.item2": "Angular & TypeScript",
+                "skills.category1.item3": "Python & Flask",
+                "skills.category1.item4": "C++ & C#",
+                "skills.category1.item5": "PHP & Symfony",
+                "skills.category1.item6": "Architecture Microservices",
+                "skills.category2.title": "Cloud & DevOps",
+                "skills.category2.item1": "Docker & Kubernetes",
+                "skills.category2.item2": "CI/CD avec Jenkins",
+                "skills.category2.item3": "Prometheus & Grafana",
+                "skills.category2.item4": "Git & GitHub Actions",
+                "skills.category2.item5": "Infrastructure as Code",
+                "skills.category2.item6": "Monitoring & Observability",
+                "skills.category3.title": "Bases de Données & Sécurité",
+                "skills.category3.item1": "PostgreSQL & MySQL",
+                "skills.category3.item2": "MongoDB",
+                "skills.category3.item3": "Apache Kafka",
+                "skills.category3.item4": "OAuth 2.0 & Spring Security",
+                "skills.category3.item5": "Keycloak",
+                "skills.category3.item6": "Architecture CQRS",
+                "skills.category4.title": "Compétences Produit & Soft Skills",
+                "skills.category4.item1": "Product Ownership (PSPO I)",
+                "skills.category4.item2": "Méthodologies Agile & Scrum",
+                "skills.category4.item3": "Gestion de Projet",
+                "skills.category4.item4": "Communication & Leadership",
+                "skills.category4.item5": "Résolution de Problèmes",
+                "skills.category4.item6": "Pensée Critique",
+                "languages.title": "Langues",
+                "languages.french.name": "Français",
+                "languages.french.level": "B2 – Courant professionnel",
+                "languages.english.name": "Anglais",
+                "languages.english.level": "C1 – Avancé",
+                "languages.arabic.name": "Arabe",
+                "languages.arabic.level": "Langue maternelle",
+                "experience.title": "Parcours Professionnel",
+                "experience.job1.title": "Ingénieur Logiciel Full-Stack",
+                "experience.job1.date": "Juin 2025 - Présent",
+                "experience.job1.company": "Tunisie Électronique, Tunis",
+                "experience.job1.duty1": "Développement backend Spring Boot avec MongoDB",
+                "experience.job1.duty2": "Frontend Angular avec intégration de paiements sécurisés",
+                "experience.job1.duty3": "Contribution à un moteur de scoring environnemental SaaS",
+                "experience.job1.duty4": "Intégration de tableaux de bord React en temps réel",
+                "experience.job2.title": "Développeur Freelance",
+                "experience.job2.date": "Nov 2021 - Présent",
+                "experience.job2.company": "Indépendant, Tunisie",
+                "experience.job2.duty1": "Conception et développement d'applications web",
+                "experience.job2.duty2": "Mise en place d'architectures microservices évolutives",
+                "experience.job2.duty3": "Consulting en architecture logicielle",
+                "experience.job3.title": "Stage de Fin d'Études",
+                "experience.job3.date": "Oct 2023 - Juil 2024",
+                "experience.job3.company": "Arab Soft, Tunis",
+                "experience.job3.duty1": "Développement d'un système RH avec IA (NLP)",
+                "experience.job3.duty2": "Réduction du temps de traitement de 2 semaines à 1 heure",
+                "experience.job3.duty3": "Sécurisation avec Keycloak",
+                "experience.job4.title": "Stage d'Ingénierie",
+                "experience.job4.date": "Juil 2023 - Août 2023",
+                "experience.job4.company": "Standard Sharing Software (3S), Tunis",
+                "experience.job4.duty1": "Déploiement d'une plateforme Kubernetes",
+                "experience.job4.duty2": "Automatisation CI/CD avec Jenkins",
+                "experience.job4.duty3": "Supervision avec Grafana et Prometheus",
+                "certifications.title": "Mes Certifications",
+                "certifications.cert1.name": "Professional Scrum Product Owner I",
+                "certifications.cert1.issuer": "Scrum.org",
+                "certifications.cert1.date": "Juillet 2025",
+                "certifications.cert2.name": "SAP S/4HANA Cloud Public Edition",
+                "certifications.cert2.issuer": "SAP Certified Application Associate",
+                "certifications.cert2.date": "Juillet 2025",
+                "certifications.cert3.name": "SAP TS410",
+                "certifications.cert3.issuer": "Processus Métiers Intégrés",
+                "certifications.cert3.date": "Juin 2025",
+                "contact.title": "Contactez-Moi",
+                "contact.info.title": "Informations de Contact",
+                "contact.info.address": "Nabeul, BouArgoub, Tunisie, 8000",
+                "contact.form.title": "Envoyez-moi un message",
+                "contact.form.name": "Nom",
+                "contact.form.email": "Email",
+                "contact.form.subject": "Sujet",
+                "contact.form.message": "Message",
+                "contact.form.button": "Envoyer le message",
+                "footer.quote": "\"First, solve the problem. Then, write the code.\" - John Johnson",
+                "footer.tagline": "⭐ Du concept à la production, je transforme les idées en solutions logicielles robustes et évolutives.",
+                "footer.rights": "Tous droits réservés."
+            }
+        };
 
-        function type() {
-            const currentText = texts[textIndex];
-            
-            if (isDeleting) {
-                typingText.textContent = currentText.substring(0, charIndex - 1);
-                charIndex--;
-                typingSpeed = 50;
-            } else {
-                typingText.textContent = currentText.substring(0, charIndex + 1);
-                charIndex++;
-                typingSpeed = 100;
+        // Typing animation texts in both languages
+        const typingTexts = {
+            en: [
+                "Software Engineer",
+                "Product Owner", 
+                "Cloud Architect",
+                "Innovation Enthusiast"
+            ],
+            fr: [
+                "Ingénieur Logiciel",
+                "Product Owner", 
+                "Architecte Cloud",
+                "Passionné d'Innovation"
+            ]
+        };
+
+        // Language detection and switching
+        let currentLang = 'en';
+
+        function detectLanguage() {
+            // Check if user has previously set a language preference
+            const savedLang = localStorage.getItem('preferredLanguage');
+            if (savedLang) {
+                return savedLang;
             }
             
-            if (!isDeleting && charIndex === currentText.length) {
-                isDeleting = true;
-                typingSpeed = 1000;
-            } else if (isDeleting && charIndex === 0) {
-                isDeleting = false;
-                textIndex = (textIndex + 1) % texts.length;
-                typingSpeed = 500;
+            // Detect browser language
+            const browserLang = navigator.language || navigator.userLanguage;
+            if (browserLang.startsWith('fr')) {
+                return 'fr';
             }
             
-            setTimeout(type, typingSpeed);
+            // Default to English
+            return 'en';
         }
 
-        // Start typing animation
-        setTimeout(type, 1000);
+        function setLanguage(lang) {
+            currentLang = lang;
+            localStorage.setItem('preferredLanguage', lang);
+            
+            // Update language buttons
+            document.querySelectorAll('.lang-btn').forEach(btn => {
+                btn.classList.toggle('active', btn.dataset.lang === lang);
+            });
+            
+            // Update all translatable elements
+            document.querySelectorAll('[data-i18n]').forEach(element => {
+                const key = element.getAttribute('data-i18n');
+                if (translations[lang] && translations[lang][key]) {
+                    if (element.tagName === 'INPUT' || element.tagName === 'TEXTAREA') {
+                        element.placeholder = translations[lang][key];
+                    } else {
+                        element.innerHTML = translations[lang][key];
+                    }
+                }
+            });
+            
+            // Update typing animation
+            updateTypingAnimation(lang);
+            
+            // Update HTML lang attribute
+            document.documentElement.lang = lang;
+        }
+
+        function updateTypingAnimation(lang) {
+            const texts = typingTexts[lang] || typingTexts.en;
+            
+            // Restart typing animation with new texts
+            if (window.typingInterval) {
+                clearInterval(window.typingInterval);
+            }
+            
+            let textIndex = 0;
+            let charIndex = 0;
+            let isDeleting = false;
+            const typingText = document.getElementById('typing-text');
+            
+            function type() {
+                const currentText = texts[textIndex];
+                
+                if (isDeleting) {
+                    typingText.textContent = currentText.substring(0, charIndex - 1);
+                    charIndex--;
+                } else {
+                    typingText.textContent = currentText.substring(0, charIndex + 1);
+                    charIndex++;
+                }
+                
+                if (!isDeleting && charIndex === currentText.length) {
+                    isDeleting = true;
+                    setTimeout(type, 1000);
+                } else if (isDeleting && charIndex === 0) {
+                    isDeleting = false;
+                    textIndex = (textIndex + 1) % texts.length;
+                    setTimeout(type, 500);
+                } else {
+                    setTimeout(type, isDeleting ? 50 : 100);
+                }
+            }
+            
+            // Start typing animation
+            setTimeout(type, 1000);
+        }
+
+        // Initialize language
+        document.addEventListener('DOMContentLoaded', function() {
+            const detectedLang = detectLanguage();
+            setLanguage(detectedLang);
+            
+            // Add event listeners to language buttons
+            document.querySelectorAll('.lang-btn').forEach(btn => {
+                btn.addEventListener('click', function() {
+                    setLanguage(this.dataset.lang);
+                });
+            });
+        });
 
         // Scroll animations
         const observerOptions = {
@@ -1211,14 +1522,20 @@
             })
             .then(response => {
                 if (response.ok) {
-                    alert('Thank you for your message! I will get back to you as soon as possible.');
+                    alert(currentLang === 'fr' 
+                        ? 'Merci pour votre message ! Je vous répondrai dans les plus brefs délais.' 
+                        : 'Thank you for your message! I will get back to you as soon as possible.');
                     this.reset();
                 } else {
-                    alert("An error occurred. Please try again or send me an email directly at ahmedbenammar01@gmail.com");
+                    alert(currentLang === 'fr'
+                        ? "Une erreur s'est produite. Veuillez réessayer ou m'envoyer un email directement à ahmedbenammar01@gmail.com"
+                        : "An error occurred. Please try again or send me an email directly at ahmedbenammar01@gmail.com");
                 }
             })
             .catch(error => {
-                alert("An error occurred. Please try again or send me an email directly at ahmedbenammar01@gmail.com");
+                alert(currentLang === 'fr'
+                    ? "Une erreur s'est produite. Veuillez réessayer ou m'envoyer un email directement à ahmedbenammar01@gmail.com"
+                    : "An error occurred. Please try again or send me an email directly at ahmedbenammar01@gmail.com");
             });
         });
 
