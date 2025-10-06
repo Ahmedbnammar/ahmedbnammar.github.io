@@ -1,0 +1,55 @@
+/* Light Theme */
+[data-theme="light"] {
+    --dark: #ffffff;
+    --darker: #f8f9fa;
+    --light: #212529;
+    --gray: #6c757d;
+    --card-bg: #ffffff;
+    --primary: #007bff;
+    --primary-dark: #0056b3;
+    --primary-light: #66b3ff;
+    --secondary: #28a745;
+}
+
+[data-theme="light"] body {
+    background-color: var(--dark);
+    color: var(--light);
+}
+
+[data-theme="light"] .skill-category,
+[data-theme="light"] .timeline-content,
+[data-theme="light"] .education-item,
+[data-theme="light"] .cert-card,
+[data-theme="light"] .project-card,
+[data-theme="light"] .language-item {
+    background-color: var(--card-bg);
+    border: 1px solid #e9ecef;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+[data-theme="light"] .form-control {
+    background-color: var(--card-bg);
+    border: 1px solid #ced4da;
+    color: var(--light);
+}
+
+[data-theme="light"] .theme-btn,
+[data-theme="light"] .language-switcher,
+[data-theme="light"] .social-link,
+[data-theme="light"] .badge {
+    background-color: var(--card-bg);
+    border: 1px solid #e9ecef;
+    color: var(--light);
+}
+
+[data-theme="light"] header {
+    background: linear-gradient(135deg, var(--darker) 0%, var(--dark) 100%);
+}
+
+[data-theme="light"] footer {
+    background-color: var(--darker);
+}
+
+[data-theme="light"] .shape {
+    background: rgba(0, 123, 255, 0.1);
+}
